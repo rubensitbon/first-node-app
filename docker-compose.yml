@@ -1,0 +1,12 @@
+version: '2'
+services:
+  first-node-psql:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.db.dev
+    env_file: ./docker/psql/psql.dev.env
+    image: ffyn-psql
+    ports:
+    - "5431:5431"
+    volumes:
+    - .docker/db-shared:/dumps
